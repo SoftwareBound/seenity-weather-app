@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weatherService.service';
 import { SortTypes } from '../common/enums';
 import { convertToCelsuis, sortBy } from '../common/utils';
+import { Store } from '@ngrx/store';
+import { getResultsAction } from '../state/results/results.actions';
+import { getResults } from '../state/results/results.selector';
+import { AppState } from '../state/app.state';
 
 @Component({
   selector: 'app-main-page',
@@ -11,11 +15,16 @@ import { convertToCelsuis, sortBy } from '../common/utils';
 export class MainPageComponent implements OnInit {
   cityName: string = '';
   sortTypes = SortTypes;
-
   previousSearches: string[] = [];
   cityResultsWeather: any[] = [];
+  public resultsState = this.store
+    .select(getResults)
+    .subscribe((data) => console.log(data));
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(
+    private weatherService: WeatherService,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit(): void {}
 
@@ -41,6 +50,7 @@ export class MainPageComponent implements OnInit {
         };
       })
     );
+    this.store.dispatch(getResultsAction({ content: this.cityResultsWeather }));
   }
 
   sortResultstBy(e: any) {
