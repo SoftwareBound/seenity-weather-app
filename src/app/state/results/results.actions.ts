@@ -6,7 +6,7 @@ export const getResultsAction = createAction(
   props<{ content: any[] }>()
 );
 
-export const setSelectedResult = createAction(
+export const setSelectedResultAction = createAction(
   'SET_SELECTED_RESULT',
   props<{ content: Result }>()
 );

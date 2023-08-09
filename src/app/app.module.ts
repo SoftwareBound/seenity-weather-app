@@ -8,9 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { StoreModule } from '@ngrx/store';
 import { resultReducer } from './state/results/results.reducer';
+import { ResultsPageComponent } from './results-page/results-page.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent],
+  declarations: [AppComponent, MainPageComponent, ResultsPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,6 +20,7 @@ import { resultReducer } from './state/results/results.reducer';
     BrowserAnimationsModule,
     MatMenuModule,
     StoreModule.forRoot({ results: resultReducer }),
+    NgxChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

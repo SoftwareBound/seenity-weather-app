@@ -1,32 +1,93 @@
-div {
-  margin: 20px;
+.main-page-window-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  .search-history-container {
+    line-height: normal;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20%;
+    padding: 10px;
+    z-index: 1;
 
-  input {
-    padding: 5px;
-    font-size: 16px;
+    p {
+      font-size: 2em;
+      text-decoration: underline;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2em 0;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    li {
+      font-size: 2em;
+      margin: 0 0 0.5em 0;
+    }
+    li:hover {
+      text-decoration: underline;
+    }
   }
+  .main-page-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5em 0 0 0;
+    font-size: x-large;
+    flex-flow: column;
+    align-items: center;
 
-  button {
-    padding: 5px 10px;
-    font-size: 16px;
-    background-color: wheat;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
+    .main-page-button-container {
+      display: flex;
+      button {
+        margin: 0 4em 0 0;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-  }
+    li:hover {
+      text-decoration: underline;
+    }
 
-  li {
-    cursor: pointer;
-    font-size: 1.5em;
-    margin: 0 0 0.5em 0;
-  }
-  li:hover {
-    text-decoration: underline;
+    input {
+      padding: 5px;
+      font-size: 1em;
+      width: 50%;
+      margin: 0 0 1em 0;
+    }
+    p {
+      margin: 0 0 1em 0;
+      font-size: 3em;
+    }
+    li {
+      cursor: pointer;
+      font-size: 0.8em;
+      margin: 0 0 0.5em 0;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .search-history-container {
+      p {
+        font-size: x-large;
+      }
+    }
+    button {
+      padding: 5px 10px;
+      margin: 0 2.5em 0em 1em;
+      font-size: 0.8em;
+      background-color: grey;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
