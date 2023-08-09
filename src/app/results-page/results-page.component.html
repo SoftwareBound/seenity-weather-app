@@ -1,0 +1,36 @@
+<div class="results-page-container" *ngIf="this.selectedResult">
+  <p>
+    {{ this.selectedResult?.name }},
+    <span *ngIf="this.selectedResult.state"
+      >{{ this.selectedResult?.state }},</span
+    >{{ this.selectedResult?.country }}
+  </p>
+  <div class="chart-container">
+    <ngx-charts-line-chart
+      [view]="view"
+      [results]="chartData"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      class="chart-container"
+    >
+    </ngx-charts-line-chart>
+  </div>
+  <div class="button-container">
+    <div>
+      <button (click)="loadPreviousResult()" [disabled]="this.isPrevCityIndex">
+        Previous
+      </button>
+      <button (click)="loadNextResult()" [disabled]="this.isNextCityIndex">
+        Next
+      </button>
+    </div>
+    <div>
+      <button><a routerLink="">Home</a></button>
+    </div>
+  </div>
+</div>
