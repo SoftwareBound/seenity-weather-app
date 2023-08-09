@@ -1,26 +1,46 @@
-<div>
-  <input [(ngModel)]="cityName" placeholder="Search for city\state weather" />
-  <button (click)="searchWeatherForCity()">Search</button>
-  <button mat-button [matMenuTriggerFor]="menu">Sort</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="sortResultstBy($event)">
-      {{ sortTypes.BY_NAME_ASCENDING }}
-    </button>
-    <button mat-menu-item (click)="sortResultstBy($event)">
-      {{ sortTypes.BY_NAME_DESCENDING }}
-    </button>
-    <button mat-menu-item (click)="sortResultstBy($event)">
-      {{ sortTypes.BY_TEMP_ASCENDING }}
-    </button>
-    <button mat-menu-item (click)="sortResultstBy($event)">
-      {{ sortTypes.BY_TEMP_DESCENDING }}
-    </button>
-  </mat-menu>
-  <ul>
-    <li *ngFor="let result of cityResultsWeather">
-      {{ result.name }},
-      {{ result.country }}
-      {{ result.temp }} °Celsius
-    </li>
-  </ul>
+<div class="main-page-window-container">
+  <div class="search-history-container">
+    <p>Search History</p>
+    <ul>
+      <li
+        *ngFor="let search of previousSearches"
+        (click)="searchFromHistory(search)"
+      >
+        {{ search }}
+      </li>
+    </ul>
+  </div>
+  <div class="main-page-container">
+    <p>Seenity weather app</p>
+    <input [(ngModel)]="cityName" placeholder="Search for city\state weather" />
+    <div class="main-page-button-container">
+      <button (click)="searchWeatherForCity()">Search</button>
+      <button mat-button [matMenuTriggerFor]="menu">Sort</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="sortResultstBy($event)">
+          {{ sortTypes.BY_NAME_ASCENDING }}
+        </button>
+        <button mat-menu-item (click)="sortResultstBy($event)">
+          {{ sortTypes.BY_NAME_DESCENDING }}
+        </button>
+        <button mat-menu-item (click)="sortResultstBy($event)">
+          {{ sortTypes.BY_TEMP_ASCENDING }}
+        </button>
+        <button mat-menu-item (click)="sortResultstBy($event)">
+          {{ sortTypes.BY_TEMP_DESCENDING }}
+        </button>
+      </mat-menu>
+    </div>
+    <ul>
+      <li *ngFor="let result of cityResultsWeather">
+        <a routerLink="/results" (click)="setSelectedResult(result)">
+          {{ result.name }},
+          <span *ngIf="result.state">{{ result.state }},</span>
+          {{ result.country }}
+
+          {{ result.temp }}° Celsius
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

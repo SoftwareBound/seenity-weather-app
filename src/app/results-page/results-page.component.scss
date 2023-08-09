@@ -1,0 +1,40 @@
+.results-page-container {
+  .chart-legend {
+    .legend-title-text {
+      font-size: large;
+      line-height: normal;
+    }
+    .legend-wrap {
+      width: fit-content;
+      font-size: large;
+      line-height: normal;
+      .legend-label-text {
+        font-size: large;
+        line-height: normal;
+      }
+    }
+  }
+
+  display: flex;
+  justify-content: space-evenly;
+  margin: 7em 0 0 0;
+  font-size: x-large;
+  flex-flow: column;
+  align-items: center;
+
+  .button-container {
+    display: contents;
+
+    button {
+      font-size: large;
+      margin: 1em 1em 0 0;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+  .chart_container {
+    padding: 1px 1em 0 4em;
+  }
+}

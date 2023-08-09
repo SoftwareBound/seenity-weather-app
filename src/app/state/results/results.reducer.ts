@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { ResultsState } from 'src/app/common/interfaces';
-import { getResultsAction, setSelectedResult } from './results.actions';
+import { getResultsAction, setSelectedResultAction } from './results.actions';
 
 export const initialState: ResultsState = {
   results: [],
@@ -13,7 +13,7 @@ export const resultReducer = createReducer(
     ...state,
     results: content,
   })),
-  on(setSelectedResult, (state, { content }) => ({
+  on(setSelectedResultAction, (state, { content }) => ({
     ...state,
     selectedResult: content,
   }))

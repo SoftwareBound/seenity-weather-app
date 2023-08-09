@@ -1,1 +1,7 @@
-export type Result = { name: string; country: string; temp: number };
+export type Result = {
+  id: number;
+  name: string;
+  country: string;
+  state: string;
+  temp: number;
+};

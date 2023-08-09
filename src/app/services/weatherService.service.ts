@@ -9,7 +9,9 @@ export class WeatherService {
 
   async fetchCitiesResults(city: string) {
     const apiUrl: string = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=10&appid=${this.apiKey}`;
-    return await axios.get(apiUrl);
+    const response = await axios.get(apiUrl);
+    const responseData = response.data;
+    return responseData;
   }
 
   async fetchWeatherDataByCoordinates(lat: number, lon: number) {
